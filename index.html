@@ -93,6 +93,7 @@
           <img src="images/tsunami-day-logo.png" alt="project image">
           <p>Summary or description of the project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga adipisci possimus id facere asperiores numquam nulla facilis quis quaerat officiis, architecto odio, fugiat nisi magni aliquam assumenda sit vero natus. </p>
           <a href="project-details.html" target="_blank">View project</a>
+          <div id="like_button_container"></div>
       </section>
       </div>
         <!-- End of Feature Project block. -->
@@ -132,58 +133,67 @@
         
         <form method="post" action="saveproject.php">
           <label for="inputTitle" class="form-label">Project Title:</label>
-          <input type="text" name="project_title" required><br>
+          <input type="text" id="project_title" required><br>
           <label for="inputPOCName" class="form-label">Project Contact Person:</label>
-          <input type="text" name="project_poc" required><br>
+          <input type="text" id="project_poc" required><br>
           <label for="inputPOCNumber" class="form-label">Project Contact Number:</label>
-          <input type="number" name="project_pocnum" required><br>
+          <input type="number" id="project_pocnum" required><br>
           <div class="invalid-feedback">Please enter a valid phone number</div>
           <label for="inputPOCEmail" class="form-label">Project Contact Email:</label>
-          <input type="email" name="project_pocemail" required><br>
+          <input type="email" id="project_pocemail" required><br>
           <div class="invalid-feedback">Please enter a valid email address</div>
           <label for="inputProjectType" class="form-label">Project Type:</label><br>
-          <input type="checkbox" name="project_type" value="training">Education<br>
-          <input type="checkbox" name="project_type" value="fundraising">Fundraiser<br>
-          <input type="checkbox" name="project_type" value="fundraising">Online Campaign<br>
-          <input type="checkbox" name="project_type" value="training">Training<br>
-          <input type="checkbox" name="project_type" value="webinar">Webinar<br>
-         
+        <select>
+          <option value="">Select option from dropdown</option>
+          <option name="project_type" value="dialogue" id="dialogue">Dialogue<br>
+          <option name="project_type" value="document" id="document">Document<br>
+          <option name="project_type" value="education" id="education">Education<br>
+          <option name="project_type" value="fundraiser" id="fundraiser">Fundraiser<br>
+          <option name="project_type" value="campaign" id="campaign">Online Campaign<br>
+          <option name="project_type" value="training" id="training">Training<br>
+          <option name="project_type" value="webinar" id="webinar">Webinar<br>
+        </select><br>
           <label for="inputProjectCategory" class="form-label">Project Category:</label><br>
           <select>
             <option value="">Select option from dropdown</option>
-            <option value="wt1" name="project_category">Disaster Risk Management Strategies<br>
-            <option value="wt2" name="project_category">Education and Training<br>
-            <option value="wt3" name="project_category">Urban Risk Resilience<br>
-            <option value="pa1" name="project_category">Small and Medium-size Businesses<br>
-            <option value="pa2" name="project_category">Investors and Investments<br>
-            <option value="pa3" name="project_category">Re-Insurance<br>
-            <option value="pa3" name="project_category">Resilient Infrastructure<br>
+            <option id="drr" value="wt1" name="project_category">Disaster Risk Management Strategies<br>
+            <option id="educ" value="wt2" name="project_category">Education and Training<br>
+            <option id="urr" value="wt3" name="project_category">Urban Risk Resilience<br>
+            <option id="msmse" value="pa1" name="project_category">Small and Medium-size Businesses<br>
+            <option id="inv" value="pa2" name="project_category">Investors and Investments<br>
+            <option id="ins" value="pa3" name="project_category">Re-Insurance<br>
+            <option id="rinf" value="pa3" name="project_category">Resilient Infrastructure<br>
           </select><br>
           <label for="inputProjectStatus" class="form-label">Project Status:</label><br>
-          <input type="radio" name="project_status" value="scheduled">Scheduled<br>
-          <input type="radio" name="project_status" value="started">Started<br>
-          <input type="radio" name="project_status" value="completed">Completed<br>
+          <input id="new" type="radio" name="project_status" value="scheduled">Scheduled<br>
+          <input id="start" type="radio" name="project_status" value="started">Started<br>
+          <input id="done" type="radio" name="project_status" value="completed">Completed<br>
           <label for="inputProjectDesc" class="form-label">Project Description:</label><br>
-          <input type="textarea" name="project_desc"><br>
+          <input type="textarea" id="project_desc"><br>
           <label for="inputSendaiSDG" class="form-label">Sustainable Development Goal:</label> 
           <a href="https://sdg-tracker.org/">Click here for more information.</a><br>
-          <select multiple>
+          <select>
+            <option value="">Select option from dropdown</option><br>
             <option value="1" name="sendai_id">1 No Poverty</option><br>
-              <option value="sdg1.1" name="sendai_sdgi">1.1 Eradicate extreme poverty</option><br>
-              <option value="sdg1.2" name="sendai_sdgi">1.2 Reduce poverty by at least 50%</option><br>
-              <option value="sdg1.3" name="sendai_sdgi">1.3 Implement social protection systems</option><br>
-              <option value="sdg1.4" name="sendai_sdgi">1.4 Equal rights to ownership, basic services, technology and economic resources</option><br>
-              <option value="sdg1.5" name="sendai_sdgi">1.5 Build resilience to environmental, economic and social disasters</option><br>
-              <option value="sdg1.a" name="sendai_sdgi">1.A Mobilisation of resources to end poverty</option><br>
-              <option value="sdg1.b" name="sendai_sdgi">1.B Pro-poor public spending</option><br>
+              <option value="sdg1.1" name="sendai_sdgi" hidden>1.1 Eradicate extreme poverty</option><br>
+              <option value="sdg1.2" name="sendai_sdgi" hidden>1.2 Reduce poverty by at least 50%</option><br>
+              <option value="sdg1.3" name="sendai_sdgi" hidden>1.3 Implement social protection systems</option><br>
+              <option value="sdg1.4" name="sendai_sdgi" hidden>1.4 Equal rights to ownership, basic services, technology and economic resources</option><br>
+              <option value="sdg1.5" name="sendai_sdgi" hidden>1.5 Build resilience to environmental, economic and social disasters</option><br>
+              <option value="sdg1.a" name="sendai_sdgi" hidden>1.A Mobilisation of resources to end poverty</option><br>
+              <option value="sdg1.b" name="sendai_sdgi" hidden>1.B Pro-poor public spending</option><br>
             <option value="2" name=sendai_id">2 Zero Hunger</option><br>
-              <option value="sdg2.1" name="sendai_sdgi">2.1 Universal access to safe and nutritious food</option><br>
-                <option value="sdg2.1.1" name="sendai_sdgi">2.1.1 Prevalence of undernourishment</option><br>
-                <option value="sdg2.1.2" name="sendai_sdgi">2.1.2 Prevalence of food insecurity</option><br>
-              <option value="sdg2.2" name="sendai_sdgi">2.2 End all forms of malnutrition</option><br>
-                <option value="sdg2.2.1" name="sendai_sdgi">2.2.1 Prevalence of childhood stunting</option><br>  
-                <option value="sdg2.2.2" name="sendai_sdgi">2.2.2 Prevalence of childhood malnutrition (wasting or overweight)</option><br>
-                
+              <option value="sdg2.1" name="sendai_sdgi" hidden>2.1 Universal access to safe and nutritious food</option><br>
+                <option value="sdg2.1.1" name="sendai_sdgi" hidden>2.1.1 Prevalence of undernourishment</option><br>
+                <option value="sdg2.1.2" name="sendai_sdgi" hidden>2.1.2 Prevalence of food insecurity</option><br>
+              <option value="sdg2.2" name="sendai_sdgi" hidden>2.2 End all forms of malnutrition</option><br>
+                <option value="sdg2.2.1" name="sendai_sdgi" hidden>2.2.1 Prevalence of childhood stunting</option><br>  
+                <option value="sdg2.2.2" name="sendai_sdgi" hidden>2.2.2 Prevalence of childhood malnutrition (wasting or overweight)</option><br>
+              <option value="sdg2.3" name="sendai_sdgi" hidden>2.3 Double the productivity and incomes of small-scale food producers</option><br> 
+                <option value="sdg2.3.1" name="sendai_sdgi" hidden>2.3.1 Production per labour unit</option><br>
+                <option value="sdg2.3.2" name="sendai_sdgi" hidden>2.3.2 Income of small-scale food producers</option><br>
+            <option value="sdg2.4" name="sendai_sdgi" hidden>2.4 Sustainable food production and resilient agricultural practices</option><br> 
+              
             <option value="3" name="sendai_id">3 Good Health and Well-being</option><br>
             <option value="4" name="sendai_id">4 Quality Education</option><br>
             <option value="5" name="sendai_id">5 Gender Equality</option><br>
@@ -220,7 +230,7 @@
           <input type="number" name="actual_value" id="papeople"><br>
           <label for="inputImages" class="form-label">Image Gallery:</label><br>
           <input type="image" name="gallery"><br>
-          <button class="btn btn-primary" type="submit">Save Project</button>
+          <button class="btn btn-primary" type="submit" id="save">Save Project</button>
 
         </form>
       
@@ -245,7 +255,18 @@
         
       </footer>
     </main>
+    
     <script type="text/javascript" src="text/script.jsx"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+  
+
+  <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Load our React component. -->
+  <script src="like_button.js"></script>
+
   </body>
+
 </html>
